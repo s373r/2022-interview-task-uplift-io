@@ -7,7 +7,6 @@ import { GroupsController } from './groups/groups.controller';
 import { IndexesController } from './indexes/indexes.controller';
 
 @Module({
-  imports: [],
   controllers: [
     AppController,
     BlocksController,
