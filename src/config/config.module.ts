@@ -11,6 +11,7 @@ const validationSchema = Joi.object({
 const ConfigModule = ConfigModuleClass.forRoot({
   validationSchema,
   cache: true,
+  isGlobal: true,
 });
 
 export { ConfigModule };
