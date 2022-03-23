@@ -12,7 +12,7 @@ import { ConfigVariable, ConfigVariables } from '../config';
 type BlockNumber = number | 'latest';
 
 @Injectable()
-export class Web3Service {
+class Web3Service {
   private readonly web3: Web3;
 
   constructor(private readonly configService: ConfigService<ConfigVariables>) {
@@ -28,3 +28,5 @@ export class Web3Service {
     return this.web3.eth.getBlock(id);
   }
 }
+
+export { BlockNumber, Web3Service };
