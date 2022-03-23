@@ -6,6 +6,11 @@ import { BlockTransactionString } from 'web3-eth';
 // TODO: import aliases instead relative paths
 import { ConfigVariable, ConfigVariables } from '../config';
 
+// NOTE: we redeclare BlockNumber for our task requirements
+//       (only number (id) or latest)
+//       instead of using existing one from web3-core
+type BlockNumber = number | 'latest';
+
 @Injectable()
 export class Web3Service {
   private readonly web3: Web3;
@@ -19,8 +24,7 @@ export class Web3Service {
     this.web3 = new Web3(provider);
   }
 
-  // TODO: id parameter: add "latest" to type
-  async getBlock(id: number): Promise<BlockTransactionString> {
+  async getBlock(id: BlockNumber): Promise<BlockTransactionString> {
     return this.web3.eth.getBlock(id);
   }
 }
