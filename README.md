@@ -3,3 +3,7 @@
 ## Code conduction
 
 This project uses [Gitmoji](https://gitmoji.carloscuesta.me) for commit messages
+
+## License
+
+[MIT](LICENSE)
