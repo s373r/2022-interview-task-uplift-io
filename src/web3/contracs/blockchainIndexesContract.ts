@@ -2,6 +2,8 @@ import ContractInfo from './ContractInfo';
 
 type Id = number;
 
+type GroupIds = Array<Id>;
+
 interface Group {
   name: string;
   indexes: Array<Id>;
@@ -69,4 +71,4 @@ const blockchainIndexesContract: ContractInfo = {
 };
 
 export default blockchainIndexesContract;
-export { Group };
+export { Group, GroupIds };

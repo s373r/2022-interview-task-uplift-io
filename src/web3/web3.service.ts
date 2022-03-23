@@ -7,6 +7,7 @@ import { Contract } from 'web3-eth-contract';
 // TODO: import aliases instead relative paths
 import blockchainIndexesContract, {
   Group,
+  GroupIds,
 } from './contracs/blockchainIndexesContract';
 import { ConfigVariable, ConfigVariables } from '../config';
 
@@ -37,6 +38,10 @@ class Web3Service {
 
   async getBlock(id: BlockNumber): Promise<BlockTransactionString> {
     return this.web3.eth.getBlock(id);
+  }
+
+  async getGroupIds(): Promise<GroupIds> {
+    return this.contract.methods.getGroupIds().call();
   }
 
   async getGroup(id: number): Promise<Group> {
