@@ -1,9 +1,11 @@
 import {
+  CacheInterceptor,
   Controller,
   Get,
   NotFoundException,
   Param,
   ParseIntPipe,
+  UseInterceptors,
 } from '@nestjs/common';
 import { isNil } from 'lodash';
 
@@ -11,6 +13,7 @@ import { Web3Service } from '../web3/web3.service';
 import { Index } from '../web3/contracs/blockchainIndexesContract';
 
 @Controller('indexes')
+@UseInterceptors(CacheInterceptor)
 export class IndexesController {
   constructor(private readonly web3Service: Web3Service) {}
 
