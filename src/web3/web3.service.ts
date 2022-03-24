@@ -43,7 +43,7 @@ class Web3Service {
     return this.web3.eth.getBlock(id);
   }
 
-  async getGroupIds(): Promise<GroupIds> {
+  getGroupIds(): Promise<GroupIds> {
     return this.contract.methods.getGroupIds().call();
   }
 
