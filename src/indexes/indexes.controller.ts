@@ -11,6 +11,7 @@ import {
   ApiBadRequestResponse,
   ApiNotFoundResponse,
   ApiOkResponse,
+  ApiParam,
   ApiTags,
 } from '@nestjs/swagger';
 import { isNil } from 'lodash';
@@ -34,6 +35,22 @@ export class IndexesController {
   })
   @ApiNotFoundResponse({
     description: 'The requested index is not found',
+  })
+  @ApiParam({
+    name: 'id',
+    // NOTE: To unlock the last example in Swagger UI
+    type: '',
+    examples: {
+      'Get an index': {
+        value: 1,
+      },
+      'Try to get a non-existent index ': {
+        value: 42,
+      },
+      'Try to use an invalid index ID': {
+        value: 'foobar',
+      },
+    },
   })
   async getIndex(@Param('id', ParseIntPipe) id: number): Promise<Index> {
     const index = await this.web3Service.getIndex(id);

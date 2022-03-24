@@ -36,6 +36,17 @@ export class BlocksController {
   })
   @ApiParam({
     name: 'id',
+    examples: {
+      'Get a block by ID (as a number)': {
+        value: 100500,
+      },
+      'Get the latest block': {
+        value: 'latest',
+      },
+      'Try to use an invalid block ID': {
+        value: 'foobar',
+      },
+    },
     // TODO: The following schema does not work (in UI) -- figure out why
     schema: {
       oneOf: [{ type: 'string', enum: ['latest'] }, { type: 'integer' }],

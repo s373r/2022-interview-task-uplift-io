@@ -11,6 +11,7 @@ import {
   ApiBadRequestResponse,
   ApiNotFoundResponse,
   ApiOkResponse,
+  ApiParam,
   ApiTags,
 } from '@nestjs/swagger';
 import { isNil } from 'lodash';
@@ -42,6 +43,22 @@ export class GroupsController {
   })
   @ApiNotFoundResponse({
     description: 'The requested group is not found',
+  })
+  @ApiParam({
+    name: 'id',
+    // NOTE: To unlock the last example in Swagger UI
+    type: '',
+    examples: {
+      'Get a group': {
+        value: 12,
+      },
+      'Try to get a non-existent group ': {
+        value: 777,
+      },
+      'Try to use invalid group ID': {
+        value: 'foobar',
+      },
+    },
   })
   async getGroup(@Param('id', ParseIntPipe) id: number): Promise<Group> {
     const group = await this.web3Service.getGroup(id);
