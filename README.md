@@ -1,14 +1,14 @@
-# Interview task: [uplift.io](https://uplift.io/)
+# 💻 Interview task: [uplift.io](https://uplift.io/)
 
 Details: [interview-task.pdf](./assets/interview-task.pdf)
 
-## Run
+## 🚀 Run
 
 ```shell
 $ npm install
 $ npm run start:prod
 ```
-## Local development
+## 🔨 Local development
 
 ```bash
 # one-shot start
@@ -31,10 +31,10 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Code conduction
+## ✏️ Code conduction
 
 This project uses [Gitmoji](https://gitmoji.carloscuesta.me) for commit messages
 
-## License
+## 📄 License
 
 [MIT](LICENSE)
