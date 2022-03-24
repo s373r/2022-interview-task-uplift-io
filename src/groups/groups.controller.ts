@@ -2,13 +2,17 @@ import {
   CacheInterceptor,
   Controller,
   Get,
-  HttpStatus,
   NotFoundException,
   Param,
   ParseIntPipe,
   UseInterceptors,
 } from '@nestjs/common';
-import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBadRequestResponse,
+  ApiNotFoundResponse,
+  ApiOkResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { isNil } from 'lodash';
 
 import { ApiGroup } from '../common';
@@ -22,8 +26,7 @@ export class GroupsController {
   constructor(private readonly web3Service: Web3Service) {}
 
   @Get()
-  @ApiResponse({
-    status: HttpStatus.OK,
+  @ApiOkResponse({
     description: 'Group IDs are returned',
   })
   async getGroupIds(): Promise<GroupIds> {
@@ -31,16 +34,13 @@ export class GroupsController {
   }
 
   @Get(':id')
-  @ApiResponse({
-    status: HttpStatus.OK,
+  @ApiOkResponse({
     description: 'The requested group is returned',
   })
-  @ApiResponse({
-    status: HttpStatus.BAD_REQUEST,
+  @ApiBadRequestResponse({
     description: '"id" is not a number',
   })
-  @ApiResponse({
-    status: HttpStatus.NOT_FOUND,
+  @ApiNotFoundResponse({
     description: 'The requested group is not found',
   })
   async getGroup(@Param('id', ParseIntPipe) id: number): Promise<Group> {

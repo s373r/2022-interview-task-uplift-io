@@ -2,11 +2,16 @@ import {
   CacheInterceptor,
   Controller,
   Get,
-  HttpStatus,
   Param,
   UseInterceptors,
 } from '@nestjs/common';
-import { ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiParam,
+  ApiBadRequestResponse,
+  ApiNotFoundResponse,
+  ApiOkResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { BlockTransactionString } from 'web3-eth';
 
 import { ApiGroup } from '../common';
@@ -20,16 +25,13 @@ export class BlocksController {
   constructor(private readonly web3Service: Web3Service) {}
 
   @Get(':id')
-  @ApiResponse({
-    status: HttpStatus.OK,
+  @ApiOkResponse({
     description: 'The requested block is returned',
   })
-  @ApiResponse({
-    status: HttpStatus.BAD_REQUEST,
+  @ApiBadRequestResponse({
     description: '"id" is not a valid block ID',
   })
-  @ApiResponse({
-    status: HttpStatus.NOT_FOUND,
+  @ApiNotFoundResponse({
     description: 'The requested group is not found',
   })
   @ApiParam({
