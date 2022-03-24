@@ -8,7 +8,7 @@ import { AppConfigService, ConfigVariable } from './config';
 import packageJson from '../package.json';
 import { ApiGroup } from './common';
 
-async function bootstrap() {
+async function bootstrap(): Promise<void> {
   const config = new DocumentBuilder()
     .setTitle(packageJson.name)
     .setDescription(packageJson.description)

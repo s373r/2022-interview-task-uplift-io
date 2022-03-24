@@ -2,7 +2,7 @@ import { AbiItem } from 'web3-utils';
 
 interface ContractInfo {
   address: string;
-  jsonInterface: AbiItem[];
+  jsonInterface: Array<AbiItem>;
 }
 
 export default ContractInfo;
