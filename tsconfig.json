@@ -15,10 +15,12 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": false,
+    "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitOverride": true,
   }
 }
