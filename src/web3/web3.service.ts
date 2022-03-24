@@ -5,11 +5,13 @@ import { BlockTransactionString } from 'web3-eth';
 import { Contract } from 'web3-eth-contract';
 
 // TODO: import aliases instead relative paths
+import Web3ErrorHelper from './Web3ErrorHelper';
 import blockchainIndexesContract, {
   Group,
   GroupIds,
 } from './contracs/blockchainIndexesContract';
 import { ConfigVariable, ConfigVariables } from '../config';
+import { Nullable } from '../utils';
 
 // NOTE: we redeclare BlockNumber for our task requirements
 //       (only number (id) or latest)
@@ -44,8 +46,20 @@ class Web3Service {
     return this.contract.methods.getGroupIds().call();
   }
 
-  async getGroup(id: number): Promise<Group> {
-    return this.contract.methods.getGroup(id).call();
+  async getGroup(id: number): Promise<Nullable<Group>> {
+    let group;
+
+    try {
+      group = await this.contract.methods.getGroup(id).call();
+    } catch (e) {
+      if (Web3ErrorHelper.isInvalidGroupIdError(e)) {
+        return null;
+      }
+
+      throw e;
+    }
+
+    return group;
   }
 }
 
