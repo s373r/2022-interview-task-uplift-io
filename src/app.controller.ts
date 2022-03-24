@@ -8,5 +8,6 @@ export class AppController {
   @Get()
   @ApiExcludeEndpoint()
   @Redirect(ApiGroup.DOCUMENTATION)
-  redirect() {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  redirect(): void {}
 }
