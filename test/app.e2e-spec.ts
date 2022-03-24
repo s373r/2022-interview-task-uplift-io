@@ -116,7 +116,7 @@ describe('AppController (e2e)', () => {
   });
 
   it('/indexes/:id (GET): Try to get a non-existent index', () => {
-    return request(app.getHttpServer()).get('/indexes/42').expect(404);
+    return request(app.getHttpServer()).get('/indexes/1').expect(404);
   });
 
   it('/indexes/:id (GET): Try to use invalid index ID', () => {
