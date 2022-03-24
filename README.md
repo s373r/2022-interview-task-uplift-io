@@ -1,5 +1,7 @@
 # 💻 Interview task: [uplift.io](https://uplift.io/)
 
+A server for blockchain indexes
+
 Details: [interview-task.pdf](./assets/interview-task.pdf)
 
 ## Online-demo
