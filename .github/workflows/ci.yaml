@@ -31,7 +31,7 @@ jobs:
         run: npm run build
 
       - name: Run tests
-        run: npm test
+        run: WEB3_HTTP_ENDPOINT=foobar npm test
 
       - name: Lint code
         run: npm run lint:ci
