@@ -9,9 +9,9 @@ Details: [interview-task.pdf](./assets/interview-task.pdf)
 
 ## 🚀 Run
 
-> 💡 Please note 
-
-You have to pass `WEB3_HTTP_ENDPOINT=YOUR_INFURA_PROJECT_ENDPOINT` as an environment variable 
+> 💡 Please note: 
+> 
+> You have to pass `WEB3_HTTP_ENDPOINT=YOUR_INFURA_PROJECT_ENDPOINT` as an environment variable 
 
 ```shell
 $ npm install
