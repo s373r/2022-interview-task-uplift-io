@@ -5,18 +5,22 @@
 
 ## 🚀 Run
 
+> 💡 Please note 
+
+You have to pass `WEB3_HTTP_ENDPOINT=YOUR_INFURA_PROJECT_ENDPOINT` as an environment variable 
+
 ```shell
 $ npm install
-$ npm run start:prod
+$ WEB3_HTTP_ENDPOINT=X npm run start:prod
 ```
 ## 🔨 Local development
 
 ```bash
 # one-shot start
-$ npm run start
+$ WEB3_HTTP_ENDPOINT=X npm run start
 
 # watch mode
-$ npm run start:dev
+$ WEB3_HTTP_ENDPOINT=X npm run start:dev
 ```
 
 Tests
