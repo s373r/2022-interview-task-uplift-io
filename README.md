@@ -1,6 +1,7 @@
 # 💻 Interview task: [uplift.io](https://uplift.io/)
 
-Details: [interview-task.pdf](./assets/interview-task.pdf)
+- Details: [interview-task.pdf](./assets/interview-task.pdf)
+- Online-demo: https://interview-task-uplift-io-2022.herokuapp.com/
 
 ## 🚀 Run
 
