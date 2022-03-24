@@ -111,7 +111,7 @@ describe('AppController (e2e)', () => {
     };
 
     return request(app.getHttpServer())
-      .get('/indexes/12')
+      .get('/indexes/1')
       .expect(200, expectedIndex);
   });
 
