@@ -7,12 +7,14 @@ import {
   ParseIntPipe,
   UseInterceptors,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { isNil } from 'lodash';
 
 import { ApiGroup } from '../common';
 import { Group, GroupIds } from '../web3/contracs/blockchainIndexesContract';
 import { Web3Service } from '../web3/web3.service';
 
+@ApiTags(ApiGroup.GROUPS)
 @Controller(ApiGroup.GROUPS)
 @UseInterceptors(CacheInterceptor)
 export class GroupsController {

@@ -5,12 +5,14 @@ import {
   Param,
   UseInterceptors,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { BlockTransactionString } from 'web3-eth';
 
 import { ApiGroup } from '../common';
 import { ParseBlockIdPipe } from '../parse-block-id.pipe';
 import { BlockNumber, Web3Service } from '../web3/web3.service';
 
+@ApiTags(ApiGroup.BLOCKS)
 @Controller(ApiGroup.BLOCKS)
 @UseInterceptors(CacheInterceptor)
 export class BlocksController {
