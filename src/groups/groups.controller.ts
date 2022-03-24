@@ -1,11 +1,13 @@
 import {
   Controller,
   Get,
-  NotImplementedException,
+  NotFoundException,
   Param,
+  ParseIntPipe,
 } from '@nestjs/common';
+import { isNil } from 'lodash';
 
-import { GroupIds } from '../web3/contracs/blockchainIndexesContract';
+import { Group, GroupIds } from '../web3/contracs/blockchainIndexesContract';
 import { Web3Service } from '../web3/web3.service';
 
 @Controller('groups')
@@ -18,7 +20,13 @@ export class GroupsController {
   }
 
   @Get(':id')
-  getGroup(@Param('id') _id: string): void {
-    throw new NotImplementedException();
+  async getGroup(@Param('id', ParseIntPipe) id: number): Promise<Group> {
+    const group = await this.web3Service.getGroup(id);
+
+    if (isNil(group)) {
+      throw new NotFoundException();
+    }
+
+    return group;
   }
 }
