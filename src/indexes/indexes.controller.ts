@@ -1,14 +1,27 @@
 import {
   Controller,
   Get,
-  NotImplementedException,
+  NotFoundException,
   Param,
+  ParseIntPipe,
 } from '@nestjs/common';
+import { isNil } from 'lodash';
+
+import { Web3Service } from '../web3/web3.service';
+import { Index } from '../web3/contracs/blockchainIndexesContract';
 
 @Controller('indexes')
 export class IndexesController {
+  constructor(private readonly web3Service: Web3Service) {}
+
   @Get(':id')
-  getIndex(@Param('id') _id: string): void {
-    throw new NotImplementedException();
+  async getIndex(@Param('id', ParseIntPipe) id: number): Promise<Index> {
+    const index = await this.web3Service.getIndex(id);
+
+    if (isNil(index)) {
+      throw new NotFoundException();
+    }
+
+    return index;
   }
 }
