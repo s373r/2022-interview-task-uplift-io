@@ -2,11 +2,11 @@ import Web3 from 'web3';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { BlockTransactionString } from 'web3-eth';
-import { Contract } from 'web3-eth-contract';
 
 // TODO: import aliases instead relative paths
 import Web3ErrorHelper from './Web3ErrorHelper';
 import blockchainIndexesContract, {
+  BlockchainIndexesContract,
   Group,
   GroupIds,
   Index,
@@ -22,7 +22,7 @@ type BlockNumber = number | 'latest';
 @Injectable()
 class Web3Service {
   private readonly web3: Web3;
-  private readonly contract: Contract;
+  private readonly contract: BlockchainIndexesContract;
 
   constructor(
     private readonly configService: ConfigService<ConfigVariables, true>,

@@ -18,6 +18,18 @@ interface Index {
   percentageChange: number;
 }
 
+interface MethodCallable<R> {
+  call(): Promise<R>;
+}
+
+interface BlockchainIndexesContract {
+  methods: {
+    getGroupIds(): MethodCallable<GroupIds>;
+    getGroup(id: Id): MethodCallable<Group>;
+    getIndex(id: Id): MethodCallable<Index>;
+  };
+}
+
 const blockchainIndexesContract: ContractInfo = {
   address: '0x4f7f1380239450AAD5af611DB3c3c1bb51049c29',
   // NOTE: https://github.com/HvrlK/abi-contract/blob/master/Contract.abi
@@ -80,4 +92,4 @@ const blockchainIndexesContract: ContractInfo = {
 };
 
 export default blockchainIndexesContract;
-export { Group, GroupIds, Index };
+export { BlockchainIndexesContract, Group, GroupIds, Index };
