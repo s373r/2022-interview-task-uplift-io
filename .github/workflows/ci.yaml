@@ -35,3 +35,6 @@ jobs:
 
       - name: Lint code
         run: npm run lint:ci
+
+      - name: Run e2e tests
+        run: WEB3_HTTP_ENDPOINT=${{ secrets.SuperSecret }} npm run test:e2e
