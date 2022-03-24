@@ -1,14 +1,9 @@
-import {
-  ArgumentMetadata,
-  Injectable,
-  PipeTransform,
-  BadRequestException,
-} from '@nestjs/common';
+import { Injectable, PipeTransform, BadRequestException } from '@nestjs/common';
 import { BlockNumber } from './web3/web3.service';
 
 @Injectable()
 export class ParseBlockIdPipe implements PipeTransform<string> {
-  transform(value: string, metadata: ArgumentMetadata): BlockNumber {
+  transform(value: string): BlockNumber {
     if (value === 'latest') {
       return value;
     }
