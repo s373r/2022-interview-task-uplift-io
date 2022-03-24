@@ -25,10 +25,6 @@ async function bootstrap() {
   const configService = app.get<AppConfigService>(ConfigService);
   const port = configService.get(ConfigVariable.PORT, { infer: true });
 
-  // .addTag('blocks')
-  // .addTag('indexes')
-  // .addTag('groups')
-
   await app.listen(port);
 }
 
