@@ -10,7 +10,11 @@ describe('GroupsController', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      imports: [CacheModule.register(), ConfigModule, Web3Module],
+      imports: [
+        CacheModule.register({ isGlobal: true }),
+        ConfigModule,
+        Web3Module,
+      ],
       controllers: [GroupsController],
     }).compile();
 
