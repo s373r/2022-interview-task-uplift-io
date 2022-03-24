@@ -17,5 +17,8 @@ module.exports = {
     jest: true,
   },
   ignorePatterns: ['.eslintrc.js'],
-  rules: {},
+  rules: {
+    '@typescript-eslint/explicit-function-return-type': 'error',
+    '@typescript-eslint/array-type': ['error', { default: 'generic' }],
+  },
 };
