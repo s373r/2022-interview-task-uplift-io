@@ -36,7 +36,7 @@ export class BlocksController {
   })
   @ApiParam({
     name: 'id',
-    // TODO: The following schema does not work -- figure out why
+    // TODO: The following schema does not work (in UI) -- figure out why
     schema: {
       oneOf: [{ type: 'string', enum: ['latest'] }, { type: 'integer' }],
     },
