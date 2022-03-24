@@ -21,5 +21,6 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'error',
     '@typescript-eslint/array-type': ['error', { default: 'generic' }],
     '@typescript-eslint/ban-ts-comment': 'error',
+    '@typescript-eslint/class-literal-property-style': 'error',
   },
 };
