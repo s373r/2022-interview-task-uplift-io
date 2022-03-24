@@ -39,7 +39,7 @@ class Web3Service {
     this.contract = new this.web3.eth.Contract(jsonInterface, address);
   }
 
-  async getBlock(id: BlockNumber): Promise<BlockTransactionString> {
+  async getBlock(id: BlockNumber): Promise<Nullable<BlockTransactionString>> {
     return this.web3.eth.getBlock(id);
   }
 

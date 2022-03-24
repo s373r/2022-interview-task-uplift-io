@@ -2,6 +2,7 @@ import {
   CacheInterceptor,
   Controller,
   Get,
+  NotFoundException,
   Param,
   UseInterceptors,
 } from '@nestjs/common';
@@ -12,6 +13,7 @@ import {
   ApiOkResponse,
   ApiTags,
 } from '@nestjs/swagger';
+import { isNil } from 'lodash';
 import { BlockTransactionString } from 'web3-eth';
 
 import { ApiGroup } from '../common';
@@ -43,6 +45,9 @@ export class BlocksController {
       'Get the latest block': {
         value: 'latest',
       },
+      'Try to get a non-existent block': {
+        value: 100000000000000000,
+      },
       'Try to use an invalid block ID': {
         value: 'foobar',
       },
@@ -55,6 +60,12 @@ export class BlocksController {
   async getBlock(
     @Param('id', ParseBlockIdPipe) id: BlockNumber,
   ): Promise<BlockTransactionString> {
-    return this.web3Service.getBlock(id);
+    const block = await this.web3Service.getBlock(id);
+
+    if (isNil(block)) {
+      throw new NotFoundException();
+    }
+
+    return block;
   }
 }
