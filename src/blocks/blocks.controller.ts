@@ -34,7 +34,7 @@ export class BlocksController {
     description: '"id" is not a valid block ID',
   })
   @ApiNotFoundResponse({
-    description: 'The requested group is not found',
+    description: 'The requested block is not found',
   })
   @ApiParam({
     name: 'id',
