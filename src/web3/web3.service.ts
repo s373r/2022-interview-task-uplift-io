@@ -27,9 +27,12 @@ class Web3Service {
   constructor(
     private readonly configService: ConfigService<ConfigVariables, true>,
   ) {
-    const httpEndpoint = configService.get(ConfigVariable.WEB3_HTTP_ENDPOINT, {
-      infer: true,
-    });
+    const httpEndpoint = this.configService.get(
+      ConfigVariable.WEB3_HTTP_ENDPOINT,
+      {
+        infer: true,
+      },
+    );
     const provider = new Web3.providers.HttpProvider(httpEndpoint);
 
     this.web3 = new Web3(provider);
