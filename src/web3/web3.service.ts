@@ -9,6 +9,7 @@ import Web3ErrorHelper from './Web3ErrorHelper';
 import blockchainIndexesContract, {
   Group,
   GroupIds,
+  Index,
 } from './contracs/blockchainIndexesContract';
 import { ConfigVariable, ConfigVariables } from '../config';
 import { Nullable } from '../utils';
@@ -60,6 +61,22 @@ class Web3Service {
     }
 
     return group;
+  }
+
+  async getIndex(id: number): Promise<Nullable<Index>> {
+    let index;
+
+    try {
+      index = await this.contract.methods.getIndex(id).call();
+    } catch (e) {
+      if (Web3ErrorHelper.isInvalidIndexIdError(e)) {
+        return null;
+      }
+
+      throw e;
+    }
+
+    return index;
   }
 }
 

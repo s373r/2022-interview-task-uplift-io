@@ -9,6 +9,15 @@ interface Group {
   indexes: Array<Id>;
 }
 
+interface Index {
+  id: Id;
+  name: string;
+  ethPriceInWei: number;
+  usdPriceInCents: number;
+  usdCapitalization: number;
+  percentageChange: number;
+}
+
 const blockchainIndexesContract: ContractInfo = {
   address: '0x4f7f1380239450AAD5af611DB3c3c1bb51049c29',
   // NOTE: https://github.com/HvrlK/abi-contract/blob/master/Contract.abi
@@ -71,4 +80,4 @@ const blockchainIndexesContract: ContractInfo = {
 };
 
 export default blockchainIndexesContract;
-export { Group, GroupIds };
+export { Group, GroupIds, Index };
