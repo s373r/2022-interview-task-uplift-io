@@ -1,8 +1,12 @@
 # 💻 Interview task: [uplift.io](https://uplift.io/)
 
 Details: [interview-task.pdf](./assets/interview-task.pdf)
- 
-## Online-demo 
+
+## Online-demo
+
+> 💡 Please note:
+>
+> HTTP response caching (5 sec) is enabled for all API endpoints
 
 https://interview-task-uplift-io-2022.herokuapp.com/
 
