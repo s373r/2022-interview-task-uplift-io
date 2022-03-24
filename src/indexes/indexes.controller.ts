@@ -44,7 +44,7 @@ export class IndexesController {
       'Get an index': {
         value: 1,
       },
-      'Try to get a non-existent index ': {
+      'Try to get a non-existent index': {
         value: 42,
       },
       'Try to use an invalid index ID': {
