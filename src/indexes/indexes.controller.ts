@@ -9,10 +9,11 @@ import {
 } from '@nestjs/common';
 import { isNil } from 'lodash';
 
+import { ApiGroup } from '../common';
 import { Web3Service } from '../web3/web3.service';
 import { Index } from '../web3/contracs/blockchainIndexesContract';
 
-@Controller('indexes')
+@Controller(ApiGroup.INDEXES)
 @UseInterceptors(CacheInterceptor)
 export class IndexesController {
   constructor(private readonly web3Service: Web3Service) {}

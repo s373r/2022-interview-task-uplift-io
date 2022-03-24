@@ -7,10 +7,11 @@ import {
 } from '@nestjs/common';
 import { BlockTransactionString } from 'web3-eth';
 
+import { ApiGroup } from '../common';
 import { ParseBlockIdPipe } from '../parse-block-id.pipe';
 import { BlockNumber, Web3Service } from '../web3/web3.service';
 
-@Controller('blocks')
+@Controller(ApiGroup.BLOCKS)
 @UseInterceptors(CacheInterceptor)
 export class BlocksController {
   constructor(private readonly web3Service: Web3Service) {}
