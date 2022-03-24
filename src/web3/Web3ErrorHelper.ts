@@ -4,18 +4,10 @@ export default class Web3ErrorHelper {
   }
 
   static isInvalidGroupIdError(e: unknown): boolean {
-    if (!this.isError(e)) {
-      return false;
-    }
-
-    return e.message === 'Returned error: execution reverted: Invalid group id';
+    return this.isError(e) && e.message.includes('Invalid group id');
   }
 
   static isInvalidIndexIdError(e: unknown): boolean {
-    if (!this.isError(e)) {
-      return false;
-    }
-
-    return e.message === 'Returned error: execution reverted: Invalid index id';
+    return this.isError(e) && e.message.includes('Invalid index id');
   }
 }
