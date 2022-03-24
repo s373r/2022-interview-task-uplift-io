@@ -12,7 +12,7 @@ import blockchainIndexesContract, {
   Index,
 } from './contracs/blockchainIndexesContract';
 import { ConfigVariable, ConfigVariables } from '../config';
-import { Nullable } from '../utils';
+import { Nullable } from '../common';
 
 // NOTE: we redeclare BlockNumber for our task requirements
 //       (only number (id) or latest)
